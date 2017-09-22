@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 import Item from './Item';
+import firebase from './Firebase.js';
 
 class ItemList extends Component {
     constructor(props) {
@@ -16,13 +17,22 @@ class ItemList extends Component {
         ]};
     }
 
+    componentDidMount() {
+        firebase.database().ref("/items").once("value", (data) => {
+            this.setState({
+                items: Object.values(data.val())
+            })
+            console.log(data.val());
+        });
+    }
+
     render() {
         return (
             <Grid fluid className="">
                 <Row>
                     {this.state.items.map((item) => 
-                        <Col type="row" xs={12} sm={6} md={4} lg={3} >
-                            <Item title={item.title} description={item.description} key={item.id} />
+                        <Col type="row" xs={12} sm={6} md={4} lg={3} key={item.id} >
+                            <Item title={item.title} description={item.description} />
                         </Col>
                     )}
                 </Row>
