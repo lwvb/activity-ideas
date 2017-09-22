@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
-import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import AppBar from 'material-ui/AppBar';
+import {Grid, Row, Col} from 'react-flexbox-grid/lib';
+import Item from './Item';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navbar inverse fixedTop>
-          <Grid>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/">Activity Ideas</a>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <div className="">
+          <AppBar title="My AppBar" />
+          <Grid fluid className="">
+            <Row>
+              <Col type="row" xs={12} sm={6} md={4} lg={3} >
+                <Item />
+              </Col>
+              <Col type="row" xs={12} sm={6} md={4} lg={3} >
+                <Item />
+              </Col>
+              <Col type="row" xs={12} sm={6} md={4} lg={3}>
+                <Item />
+              </Col>
+              <Col type="row" xs={12} sm={6} md={4} lg={3}>
+                <Item />
+              </Col>
+              <Col type="row" xs={12} sm={6} md={4} lg={3}>
+                <Item />
+              </Col>
+            </Row>
           </Grid>
-        </Navbar>
-        <Jumbotron>
-          <Grid>
-            <h1>Welcome to the Activity Ideas app</h1>
-            <p>
-              <Button
-                bsStyle="success"
-                bsSize="large"
-                href="http://react-bootstrap.github.io/components.html"
-                target="_blank">
-                View React Bootstrap Docs
-              </Button>
-            </p>
-          </Grid>
-        </Jumbotron>
-      </div>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
