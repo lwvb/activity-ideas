@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gridlist component renders 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row"
+  />
+</div>
+`;
