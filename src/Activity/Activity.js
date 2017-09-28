@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
-import './Item.css';
+import './Activity.css';
 
-class Item extends Component {
+class Activity extends Component {
     render() {
         return (
-            <Card className="item-card">
+            <Card className="activity-card">
                 <CardTitle title={this.props.title} subtitle="Card subtitle" />
                 <CardText> {this.props.description} </CardText>
                 <CardActions>
@@ -15,4 +15,4 @@ class Item extends Component {
     }
 }
 
-export default Item;
+export default Activity;
